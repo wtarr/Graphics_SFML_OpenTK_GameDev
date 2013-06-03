@@ -123,6 +123,11 @@ public:
 		if ((mousePos.x >= spritePos.x && mousePos.x <= (spritePos.x + textureInfo.width)) && (mousePos.y >= spritePos.y && mousePos.y <= (spritePos.y + textureInfo.height) ))
 		{			
 			spriteToDisplay = 1;
+			if (Mouse::isButtonPressed(Mouse::Left))
+			{
+				gameState = PLAYING;
+			}
+
 		}
 		else
 		{
