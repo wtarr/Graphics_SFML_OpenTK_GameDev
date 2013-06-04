@@ -6,6 +6,71 @@
 
 using namespace sf;
 
+class Car
+{
+
+private:
+	Vector2f window;
+
+
+public:
+	Texture texture;
+	Sprite car;
+	Vector2f forward;
+	
+	Car()
+	{
+		
+	}
+
+	void Init(Vector2f window)
+	{
+		this -> window = window;
+	}
+
+	bool InitializeTexture()
+	{	
+
+		if (!texture.loadFromFile("GameResources/racer.png"))
+		{
+			return false;
+		}
+		
+		
+		car.setTexture(texture);
+		car.setPosition((window.x / 2) - (car.getGlobalBounds().width/2), (window.y / 2) - (car.getGlobalBounds().width/2));
+		//car.setPosition(0, 0);
+		return true;
+		
+	}
+
+	void SteerLeft()
+	{
+
+	}
+
+	void steerRight()
+	{
+
+	}
+
+	void accelerate()
+	{
+
+	}
+
+	void deccelerate()
+	{
+
+	}
+
+	void update(Int32 deltaTime)
+	{
+
+	}
+};
+
+
 class Game
 {
 
@@ -25,6 +90,8 @@ private:
 	Vector2i mousePos;
 	Vector2f spritePos;
 	FloatRect textureInfo;
+
+	Car car;
 
 	Time time;
 	Int32 updateTime;	
@@ -125,6 +192,12 @@ public:
 			spriteToDisplay = 1;
 			if (Mouse::isButtonPressed(Mouse::Left))
 			{
+				if (gameState == INTRO)
+				{
+					car.Init(Vector2f(window.getSize().x, window.getSize().y));
+					car.InitializeTexture();					
+				}
+
 				gameState = PLAYING;
 			}
 
@@ -143,10 +216,12 @@ public:
 		{
 			if ( (event.type == Event::Closed) ||
 				((event.type == Event::KeyPressed) && (event.key.code==Keyboard::Escape)) )
+			{
 				window.close();    
-			else
-				if ((event.type == Event::KeyPressed) && (gameState == INTRO))
-					gameState=PLAYING;
+			}
+			
+
+		
 		}
 
 		//move player 1 pad
@@ -165,12 +240,13 @@ public:
 		window.clear(Color::White);
 		switch(gameState)
 		{
-		case INTRO:
+		case INTRO:			
 			window.draw(fps);
 			window.draw(sprites[spriteToDisplay]);
 			break;
-		case PLAYING:			
-			window.draw(fps);
+		case PLAYING:
+			window.draw(car.car);			
+			window.draw(fps);			
 			break;		
 		}
 		window.display();
