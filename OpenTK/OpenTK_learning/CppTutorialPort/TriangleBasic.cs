@@ -14,6 +14,7 @@ namespace CppTutorialPort
 {
     /// <summary>
     /// Port of CPP OpenGL tutorial to OpenTK
+    /// http://open.gl/drawing
     /// </summary>
     class TriangleBasic : GameWindow
     {
