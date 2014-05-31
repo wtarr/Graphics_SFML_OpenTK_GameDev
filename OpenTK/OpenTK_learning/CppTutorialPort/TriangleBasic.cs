@@ -16,7 +16,7 @@ namespace CppTutorialPort
     /// Port of CPP OpenGL tutorial to OpenTK
     /// http://open.gl/drawing
     /// </summary>
-    class TriangleBasic : GameWindow
+    class TriangleBasic : GameWindow, IExample
     {
         private string vertexSource = @"
 #version 150 core
@@ -135,9 +135,9 @@ outColor = vec4(1.0, 1.0, 1.0, 1.0);
             GL.DeleteVertexArrays(1, ref vao);
         }
 
-        static void Main(string[] args)
+        public void Execute()
         {
-            using (var example = new TriangleBasic())
+              using (var example = new TriangleBasic())
             {
                 example.Run(30);
             }
