@@ -1,7 +1,8 @@
-2D_Racer
-========
+General purpose repo for general learning and prototyping of a games engine using external graphic libraries/frameworks:
 
-Work in progress top down 2d racer using SFML.
+Such frameworks including:
 
+SFML
+SFML.net
 
-Using a game loop that was originally found here in this tutorial - http://riseagain.wordpress.com/2012/07/19/sfml-2-tutorial-break-out/
+OpenTK

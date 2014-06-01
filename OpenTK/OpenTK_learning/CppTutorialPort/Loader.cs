@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using OpenTK;
 
 namespace CppTutorialPort
 {
@@ -27,7 +28,8 @@ namespace CppTutorialPort
             var type = typeof (IExample);
             _types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
-                .Where(p => type.IsAssignableFrom(p) && !p.IsInterface).ToList();
+                .Where(p => type.IsAssignableFrom(p) && !p.IsInterface
+                && p.IsSubclassOf(typeof(GameWindow))).ToList();
 
             foreach (var instance in _types)
             {
@@ -41,10 +43,14 @@ namespace CppTutorialPort
         private void btnExecute_Click(object sender, EventArgs e)
         {
             var type = _types.ElementAt(Lbox_Examples.SelectedIndex);
-            
-            IExample instance = (IExample)Activator.CreateInstance(type);
-            MethodInfo mi = type.GetMethod("Execute");
-            mi.Invoke(instance, null);
+            using (Toolkit.Init())
+            {
+                using (var instance = (GameWindow)Activator.CreateInstance(type))
+                {
+                    MethodInfo mi = type.GetMethod("Execute");
+                    mi.Invoke(instance, null);
+                }
+            }
         }
     }
 }

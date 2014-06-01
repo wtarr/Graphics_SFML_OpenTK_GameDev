@@ -145,6 +145,8 @@ public:
 
 	int update()
 	{
+		//Using a game loop that was originally found here in this tutorial
+		// - http://riseagain.wordpress.com/2012/07/19/sfml-2-tutorial-break-out/
 		Clock renderClock, updateClock;
 		while (window.isOpen())
 		{

@@ -109,7 +109,10 @@ outColor = vec4(1.0, 1.0, 1.0, 1.0);
             if (Keyboard[OpenTK.Input.Key.Escape])
             {
                 Exit();
-                CleanUp();
+                //CleanUp();
+
+                Dispose();
+                
             }
 
         }
@@ -137,10 +140,7 @@ outColor = vec4(1.0, 1.0, 1.0, 1.0);
 
         public void Execute()
         {
-              using (var example = new TriangleBasic())
-            {
-                example.Run(30);
-            }
+            this.Run(30);
         }
     }
 }

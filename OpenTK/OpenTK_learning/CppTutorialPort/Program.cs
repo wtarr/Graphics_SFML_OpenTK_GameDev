@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Text;
 using System.Windows.Forms;
+using OpenTK;
 
 namespace CppTutorialPort
 {
@@ -11,11 +12,6 @@ namespace CppTutorialPort
     {
         public static void Main(string[] args)
         {
-            //Loader l = new Loader();
-            //l.Show();
-            //TriangleBasic b = new TriangleBasic();
-            //b.Execute();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Loader());
