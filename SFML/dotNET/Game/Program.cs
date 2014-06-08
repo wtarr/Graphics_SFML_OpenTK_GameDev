@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using SFML.Graphics;
-using SFML.Window;
 
-namespace SFMLStarter2
+namespace Game
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            Game game = new Game();
+            Phy_Game game = new Phy_Game();
             game.Run();
         }
     }
