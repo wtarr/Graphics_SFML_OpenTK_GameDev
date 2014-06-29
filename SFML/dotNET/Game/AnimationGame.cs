@@ -9,7 +9,7 @@ using SFMLStarter2;
 
 namespace Game
 {
-    public class Game
+    public class AnimationGame
     {
         private double _timePerFrame = 1/60f;
         private RenderWindow _window;
@@ -24,7 +24,7 @@ namespace Game
         private Vertex[] line = new Vertex[2];
 
 
-        public Game()
+        public AnimationGame()
         {
             _window = new RenderWindow(new VideoMode(600, 600), "SFML.NET Window");
             _window.Closed += OnClose;
@@ -64,12 +64,12 @@ namespace Game
             };
 
             // Load the character
-            _character = new Texture("Content/Texture/Test.png");
+            _character = new Texture("Content/Texture/characterWalk.png");
 
             animation = new Animation(_character);
-            animation.SetFrameSize(new Vector2i(128, 128));
-            animation.SetNumFrames(3);
-            animation.SetDuration(2);
+            animation.SetFrameSize(new Vector2i(200, 200));
+            animation.SetNumFrames(8);
+            animation.SetDuration(1);
             animation.SetRepeating(true);
             animation.SetPosition(new Vector2f(_window.Size.X / 2f, _window.Size.Y / 2f));
 
@@ -112,7 +112,7 @@ namespace Game
 
         private void Render()
         {
-            _window.Clear();
+            _window.Clear(new Color(Color.Cyan));
             //_window.Draw(shape);
             _window.Draw(text);
             animation.Draw(_window, RenderStates.Default);

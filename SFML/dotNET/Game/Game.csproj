@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FarseerPhysics">
+      <HintPath>..\dlls\FarseerPhysics.dll</HintPath>
+    </Reference>
     <Reference Include="sfmlnet-audio-2">
       <HintPath>..\SFML_dotNet\bin\Debug\sfmlnet-audio-2.dll</HintPath>
     </Reference>
@@ -52,22 +55,25 @@
   <ItemGroup>
     <Compile Include="Phy_Game.cs" />
     <Compile Include="Game_Template.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="AnimationGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Texture\characterWalk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Texture\test.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="csfml-audio-2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="csfml-graphics-2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="csfml-window-2.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -76,10 +82,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\C# Monogame stuff\Farseer Physics Engine 3.5 Samples\Farseer Physics Engine 3.5\Farseer Physics.csproj">
-      <Project>{a4610e4c-dd34-428b-babb-779ca0b5993a}</Project>
-      <Name>Farseer Physics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SFML_dotNet\SFML_Animation.csproj">
       <Project>{74422402-6075-439a-bc7e-78578ce59c0e}</Project>
       <Name>SFML_Animation</Name>

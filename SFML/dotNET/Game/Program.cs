@@ -9,7 +9,8 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            Phy_Game game = new Phy_Game();
+            //Phy_Game game = new Phy_Game();
+            AnimationGame game = new AnimationGame();
             game.Run();
         }
     }
